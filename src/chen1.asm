@@ -1,8 +1,9 @@
 #include "p16f84a.inc"
 
 ; CONFIG
-; __config 0x3FF2
- __CONFIG _FOSC_HS & _WDTE_OFF & _PWRTE_ON & _CP_OFF
+; __config 0xFFF2
+ __CONFIG _FOSC_HS & _WDTE_OFF & _PWRTE_ON & _CP_OFF	; définit logiciellement la valeur qui sera chargée  
+							; à la programmation dans le registre CONFIG
 
 
 ;*********************************************************************
