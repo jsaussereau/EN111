@@ -1,4 +1,4 @@
-// On ajoute la configuration du PIC... (on peut la gÃ©nÃ©rer automatiquement comme ci-dessous selon la mÃªme procÃ©dure qu'en assembleur)
+// On ajoute la configuration du PIC... (on peut la générer automatiquement comme ci-dessous selon la même procédure qu'en assembleur)
 
 //------------------------------------------------------------------------------------------
 
@@ -16,9 +16,9 @@
 
 //------------------------------------------------------------------------------------------
 
-extern void tempo();       //prototypage si fonction tempo dÃ©clarÃ©e dans un autre fichier
+extern void tempo();       //prototypage si fonction tempo déclarée dans un autre fichier
 
-// unsigned char cmpt;     // dÃ©claration nÃ©cessaire pour pouvoir utiliser _cmpt dans la routine en assembleur (voir illustration plus bas)
+// unsigned char cmpt;     // déclaration nécessaire pour pouvoir utiliser _cmpt dans la routine en assembleur (voir illustration plus bas)
 
 void init() {
 
@@ -39,13 +39,13 @@ void main() {
 
  asm("sleep");                      // permet d'introduire une instruction assembleur (exemple avec SLEEP)			
 
- --- on peut aussi Ã©crire toute une routine en assembleur :
+ --- on peut aussi écrire toute une routine en assembleur :
  
- #asm				// dÃ©but de routine assembleur
- 	BANKSEL(_cmpt)	// attention la gestion des BANK n'est plus assurÃ©e dans une routine ASM (utiliser la macro BANKSEL)
- boucle             // on peut placer des Ã©tiquettes pour les dÃ©routements comme en assembleur
+ #asm				// début de routine assembleur
+ 	BANKSEL(_cmpt)	// attention la gestion des BANK n'est plus assurée dans une routine ASM (utiliser la macro BANKSEL)
+ boucle             // on peut placer des étiquettes pour les déroutements comme en assembleur
     movlw   10		
-    movwf  _cmpt    // (notez le prÃ©fixe _, ne pas oublier de dÃ©clarer cmpt en variable globale)
+    movwf  _cmpt    // (notez le préfixe _, ne pas oublier de déclarer cmpt en variable globale)
     goto boucle
   
  #endasm			// fin de routine assembleur									
@@ -54,12 +54,12 @@ void main() {
  
 void __interrupt() isr() { // le nom 'IT' n'a pas d'importance tant qu'il y a le prefixe 'interrupt'	  
 
-    if (INTCONbits.T0IF == 1) { // teste si c'est le timer qui a dÃ©clenchÃ© l'IT
-        // action Ã  effectuer
-        INTCONbits.T0IF = 0; // le contexte est sauvegardÃ© mais il faut rÃ©initialiser le flag de la source d'IT  autorisÃ©es (flag xxIF)
+    if (INTCONbits.T0IF == 1) { // teste si c'est le timer qui a déclenché l'IT
+        // action à effectuer
+        INTCONbits.T0IF = 0; // le contexte est sauvegardé mais il faut réinitialiser le flag de la source d'IT  autorisées (flag xxIF)
     }
 
-    if (INTCONbits.xxIF == 1) { // on fait de mÃªme pour traiter les autres IT autorisÃ©es (flag xxIF)
+    if (INTCONbits.xxIF == 1) { // on fait de même pour traiter les autres IT autorisées (flag xxIF)
         INTCONbits.xxIF = 0;					
     }
 }
