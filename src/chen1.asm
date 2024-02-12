@@ -2,30 +2,30 @@
 
 ; CONFIG
 ; __config 0xFFF2
- __CONFIG _FOSC_HS & _WDTE_OFF & _PWRTE_ON & _CP_OFF	; dÈfinit logiciellement la valeur qui sera chargÈe  
-							; ‡ la programmation dans le registre CONFIG
+ __CONFIG _FOSC_HS & _WDTE_OFF & _PWRTE_ON & _CP_OFF	; d√©finit logiciellement la valeur qui sera charg√©e  
+							; √† la programmation dans le registre CONFIG
 
 
 ;*********************************************************************
 ;                              ASSIGNATIONS                          *
 ;*********************************************************************
 
-TRISA_VAL	EQU	H'00'	; Valeur ‡ charger dans registre TRISA 
-TRISB_VAL	EQU	H'01'	; Valeur ‡ charger dans registre TRISB 
-INIT_PORTA	EQU	H'FF'	; Valeur initiale ‡ charger dans registre PORTA 
-INIT_PORTB	EQU	H'00'	; Valeur initiale ‡ charger dans registre PORTB 
+TRISA_VAL	EQU	H'00'	; Valeur √† charger dans registre TRISA 
+TRISB_VAL	EQU	H'01'	; Valeur √† charger dans registre TRISB 
+INIT_PORTA	EQU	H'FF'	; Valeur initiale √† charger dans registre PORTA 
+INIT_PORTB	EQU	H'00'	; Valeur initiale √† charger dans registre PORTB 
 
 ;*********************************************************************
 ;                             DEFINE                                 *
 ;*********************************************************************
 
-#DEFINE BOUTON	PORTB, 0	; pour dÈsigner le bouton poussoir de fa√ßon plus lisible
+#DEFINE BOUTON	PORTB, 0	; pour d√©signer le bouton poussoir de fa√ßon plus lisible
 
 ;*********************************************************************
 ;                             MACRO                                  *
 ;*********************************************************************
 
-BANK0	macro			; dÈfini une macro "BANK0"
+BANK0	macro			; d√©fini une macro "BANK0"
 	bcf	STATUS, RP0	; passer en banque0
 	endm			; fin de la macro
 
@@ -37,11 +37,11 @@ BANK1	macro
 ;                   DECLARATIONS DE VARIABLES                        *
 ;*********************************************************************
 
-CBLOCK 0x00C		; dÈbut de la zone de variables (pour exemple)
+CBLOCK 0x00C		; d√©but de la zone de variables (pour exemple)
 
-    VAR : 1		; dÈclare une variable "VAR" de 1 octet (adresse 0x00C)
-    TABLEAU : 10	; rÈserve une zone mÈmoire de 10 octets (0x00D - 0x017)
-			; (TABLEAU est l'adresse du 1er ÈlÈment)
+    VAR : 1		; d√©clare une variable "VAR" de 1 octet (adresse 0x00C)
+    TABLEAU : 10	; r√©serve une zone m√©moire de 10 octets (0x00D - 0x017)
+			; (TABLEAU est l'adresse du 1er √©l√©ment)
     cmpt1 : 1		; compteur de boucles 1
     cmpt2 : 1		; compteur de boucles 2
     cmpt3 : 1		; compteur de boucles 3
@@ -52,7 +52,7 @@ ENDC			; Fin de la zone
 ;                      DEMARRAGE SUR RESET                            *
 ;**********************************************************************
 
-    org	    0x000 	; fixe l'adresse d'implantation en mÈmoire programme
+    org	    0x000 	; fixe l'adresse d'implantation en m√©moire programme
 			; de l'instruction qui suit
 reset			
     goto    start		
@@ -63,13 +63,13 @@ reset
 
 init
 	
-    BANK1			; le bloc d'instructions de la macro BANK1 est insÈrÈ ‡ la compilation
+    BANK1			; le bloc d'instructions de la macro BANK1 est ins√©r√© √† la compilation
     movlw   TRISA_VAL	
     movwf   TRISA		
     movlw   TRISB_VAL
     movwf   TRISB	
     
-    BANK0			; le bloc d'instructions de la macro BANK0 est insÈrÈ ‡ la compilation
+    BANK0			; le bloc d'instructions de la macro BANK0 est ins√©r√© √† la compilation
     movlw   INIT_PORTA
     movwf   PORTA
     movlw   INIT_PORTB
