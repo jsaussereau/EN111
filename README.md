@@ -2,10 +2,15 @@
 
 ## Télécharger l'archive
 
-Appuyer sur 
-<a class="bg-green-light mb-2">  **↓ Code** </a>
-puis **Download ZIP**
+- Cliquer [ici](https://codeload.github.com/jsaussereau/EN111/zip/refs/heads/main) pour télécharger l'archive.
+- Extraire l'archive sur la session dans **Documents**.
 
+ou dans un terminal :
+
+```bash
+cd ~/Documents/
+git clone https://github.com/jsaussereau/EN111.git
+```
 
 ## Organisation du répertoire
 Extraire l'archive sur la session dans **Documents**.
