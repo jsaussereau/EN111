@@ -2,15 +2,22 @@
 
 ## Télécharger l'archive
 
-- Cliquer [ici](https://codeload.github.com/jsaussereau/EN111/zip/refs/heads/main) pour télécharger l'archive.
-- Extraire l'archive sur la session dans **Documents**.
-
-ou dans un terminal :
+- Exécuter dans un terminal :
 
 ```bash
 cd ~/Documents/
 git clone https://github.com/jsaussereau/EN111.git
 ```
+
+- Le dossier `EN111` devrait être apparu sur votre session dans le dossier `Documents`
+
+<details>
+<summary>Solution alternative</summary>
+
+- Cliquer [ici](https://codeload.github.com/jsaussereau/EN111/zip/refs/heads/main) pour télécharger l'archive.
+- Extraire l'archive sur la session dans **Documents**.
+
+</details>
 
 ## Organisation du répertoire
 Extraire l'archive sur la session dans **Documents**.
